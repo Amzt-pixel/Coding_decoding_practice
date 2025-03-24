@@ -1,7 +1,33 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     text-align: center;
-    margin: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 50%;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+}
+
+input {
+    width: 50px;
+    padding: 5px;
+    margin-left: 10px;
 }
 
 button {
@@ -9,20 +35,46 @@ button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+button:nth-child(1) { background-color: #007bff; color: white; } /* Save */
+button:nth-child(2) { background-color: #28a745; color: white; } /* Next */
+button:nth-child(3) { background-color: #dc3545; color: white; } /* Submit */
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#options div {
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: #f9f9f9;
+}
+
+#options div:hover {
+    background-color: #e0e0e0;
 }
 
 .selected {
     font-weight: bold;
+    background-color: #ddd;
 }
 
 .saved {
-    color: darkblue;
-}
-
-#options div {
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid black;
-    display: inline-block;
-    cursor: pointer;
+    background-color: darkblue !important;
+    color: white !important;
 }
