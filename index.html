@@ -7,30 +7,34 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="setup-screen">
-        <h2>Setup Your Test</h2>
-        <label>Number of Questions: <input type="number" id="numQuestions" min="1" max="20" value="5"></label>
-        <label>Upper Limit for Integers: <input type="number" id="upperLimit" min="1" max="13" value="10"></label>
-        <button onclick="startTest()">Start Test</button>
-    </div>
+    <div class="container">
+        <div id="setup-screen">
+            <h2>Setup Your Test</h2>
+            <label>Number of Questions: <input type="number" id="numQuestions" min="1" max="20" value="5"></label>
+            <label>Upper Limit for Integers: <input type="number" id="upperLimit" min="1" max="13" value="10"></label>
+            <button onclick="startTest()">Start Test</button>
+        </div>
 
-    <div id="test-screen" style="display: none;">
-        <h2 id="question-text"></h2>
-        <div id="options"></div>
-        <p id="feedback"></p>
-        <button onclick="saveAnswer()">Save</button>
-        <button onclick="nextQuestion()">Next</button>
-        <button onclick="submitTest()">Submit</button>
-    </div>
+        <div id="test-screen" style="display: none;">
+            <h2 id="question-text"></h2>
+            <div id="options"></div>
+            <p id="feedback"></p>
+            <div class="buttons">
+                <button onclick="saveAnswer()">Save</button>
+                <button onclick="nextQuestion()">Next</button>
+                <button onclick="submitTest()">Submit</button>
+            </div>
+        </div>
 
-    <div id="result-screen" style="display: none;">
-        <h2>Test Complete</h2>
-        <p>Correct Answers: <span id="correctCount">0</span></p>
-        <p>Wrong Answers: <span id="wrongCount">0</span></p>
-        <p>Unattempted: <span id="unattemptedCount">0</span></p>
-        <p>Total Time: <span id="timeTaken"></span></p>
+        <div id="result-screen" style="display: none;">
+            <h2>Test Complete</h2>
+            <p>Correct Answers: <span id="correctCount">0</span></p>
+            <p>Wrong Answers: <span id="wrongCount">0</span></p>
+            <p>Unattempted: <span id="unattemptedCount">0</span></p>
+            <p>Total Time: <span id="timeTaken"></span></p>
+        </div>
     </div>
-
+    
     <script src="script.js"></script>
 </body>
 </html>
