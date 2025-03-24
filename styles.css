@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 40px;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.selected {
+    font-weight: bold;
+}
+
+.saved {
+    color: darkblue;
+}
+
+#options div {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    display: inline-block;
+    cursor: pointer;
+}
