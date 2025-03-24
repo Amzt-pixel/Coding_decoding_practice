@@ -1,4 +1,4 @@
-const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLM"; // Custom 39-letter system
+const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLM";
 let questions = [];
 let currentQuestionIndex = 0;
 let selectedAnswer = null;
@@ -19,22 +19,22 @@ function startTest() {
     document.getElementById("setup-screen").style.display = "none";
     document.getElementById("test-screen").style.display = "block";
     
-    startTime = new Date(); // Start the timer
+    startTime = new Date();
     displayQuestion();
 }
 
 function generateQuestions(num, maxInt) {
     questions = [];
     for (let i = 0; i < num; i++) {
-        let letterIndex = Math.floor(Math.random() * 26); // A-Z (1-26)
+        let letterIndex = Math.floor(Math.random() * 26);
         let letter = alphabet[letterIndex];
-        let number = Math.floor(Math.random() * (2 * maxInt + 1)) - maxInt; // Range: -maxInt to +maxInt
+        let number = Math.floor(Math.random() * (2 * maxInt + 1)) - maxInt;
         
-        if (number === 0) number = 1; // Avoid zero
+        if (number === 0) number = 1;
         let resultIndex = letterIndex + number;
         
         if (resultIndex < 0 || resultIndex >= 39) {
-            i--; // Regenerate if out of bounds
+            i--;
             continue;
         }
         
@@ -76,7 +76,7 @@ function displayQuestion() {
 }
 
 function selectAnswer(div, answer) {
-    if (document.querySelector(".saved")) return; // Prevent changing after save
+    if (document.querySelector(".saved")) return;
 
     document.querySelectorAll("#options div").forEach(el => el.classList.remove("selected"));
     div.classList.add("selected");
