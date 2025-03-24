@@ -1,3 +1,4 @@
+/* General Styling */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -9,16 +10,21 @@ body {
 .container {
     width: 50%;
     margin: 50px auto;
+}
+
+.box {
     background: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 h2 {
     color: #333;
 }
 
+/* Input Styling */
 label {
     display: block;
     margin: 10px 0;
@@ -30,42 +36,32 @@ input {
     margin-left: 10px;
 }
 
-button {
-    margin: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
+/* Question Box */
+.question-box {
+    background-color: #eef;
+    padding: 15px;
+    font-size: 18px;
     border-radius: 5px;
+    margin-bottom: 20px;
 }
 
-button:hover {
-    opacity: 0.8;
-}
-
-button:nth-child(1) { background-color: #007bff; color: white; } /* Save */
-button:nth-child(2) { background-color: #28a745; color: white; } /* Next */
-button:nth-child(3) { background-color: #dc3545; color: white; } /* Submit */
-
-.buttons {
+/* Options Box */
+.options-box {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     gap: 10px;
-    margin-top: 20px;
 }
 
-#options div {
-    width: 80%;
-    margin: 10px auto;
+.option {
+    background-color: #f9f9f9;
     padding: 10px;
     border: 2px solid #ccc;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
-    background-color: #f9f9f9;
 }
 
-#options div:hover {
+.option:hover {
     background-color: #e0e0e0;
 }
 
@@ -77,4 +73,30 @@ button:nth-child(3) { background-color: #dc3545; color: white; } /* Submit */
 .saved {
     background-color: darkblue !important;
     color: white !important;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.start-btn { background-color: #007bff; }
+.save-btn { background-color: #007bff; }
+.next-btn { background-color: #28a745; }
+.submit-btn { background-color: #dc3545; }
+
+button:hover {
+    opacity: 0.8;
 }
