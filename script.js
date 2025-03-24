@@ -2,8 +2,6 @@ const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLM";
 let questions = [];
 let currentQuestionIndex = 0;
 let selectedAnswer = null;
-let correctCount = 0;
-let wrongCount = 0;
 let startTime;
 
 function startTest() {
@@ -60,7 +58,7 @@ function generateOptions(correctAnswer) {
 function displayQuestion() {
     let q = questions[currentQuestionIndex];
     document.getElementById("question-number").innerText = `${currentQuestionIndex + 1} / ${questions.length}`;
-    document.getElementById("question-text").innerText = `${q.letter} ${q.number >= 0 ? "+" : ""}${q.number} = ?`;
+    document.getElementById("question-box").innerText = `${q.letter} ${q.number >= 0 ? "+" : ""}${q.number} = ?`;
 
     let optionsDiv = document.getElementById("options");
     optionsDiv.innerHTML = "";
@@ -87,18 +85,4 @@ function selectAnswer(div, answer) {
 function saveAnswer() {
     if (!selectedAnswer) return alert("Please select an option before saving!");
     document.querySelector(".selected").classList.add("saved");
-}
-
-function nextQuestion() {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-        displayQuestion();
-    } else {
-        submitTest();
-    }
-}
-
-function submitTest() {
-    document.getElementById("test-screen").style.display = "none";
-    document.getElementById("result-screen").style.display = "block";
 }
