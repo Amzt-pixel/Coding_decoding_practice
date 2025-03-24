@@ -59,6 +59,7 @@ function generateOptions(correctAnswer) {
 
 function displayQuestion() {
     let q = questions[currentQuestionIndex];
+    document.getElementById("question-number").innerText = `${currentQuestionIndex + 1} / ${questions.length}`;
     document.getElementById("question-text").innerText = `${q.letter} ${q.number >= 0 ? "+" : ""}${q.number} = ?`;
 
     let optionsDiv = document.getElementById("options");
@@ -67,6 +68,7 @@ function displayQuestion() {
     q.options.forEach(option => {
         let div = document.createElement("div");
         div.innerText = option;
+        div.classList.add("option");
         div.onclick = () => selectAnswer(div, option);
         optionsDiv.appendChild(div);
     });
@@ -77,30 +79,17 @@ function displayQuestion() {
 
 function selectAnswer(div, answer) {
     if (document.querySelector(".saved")) return;
-
-    document.querySelectorAll("#options div").forEach(el => el.classList.remove("selected"));
+    document.querySelectorAll(".option").forEach(el => el.classList.remove("selected"));
     div.classList.add("selected");
     selectedAnswer = answer;
 }
 
 function saveAnswer() {
     if (!selectedAnswer) return alert("Please select an option before saving!");
-
     document.querySelector(".selected").classList.add("saved");
-    let correctAnswer = questions[currentQuestionIndex].resultLetter;
-
-    if (selectedAnswer === correctAnswer) {
-        document.getElementById("feedback").innerText = "Very Good! Your answer is correct!";
-        correctCount++;
-    } else {
-        document.getElementById("feedback").innerText = "Oops! That was wrong!";
-        wrongCount++;
-    }
 }
 
 function nextQuestion() {
-    if (!document.querySelector(".saved")) return alert("You must save your answer first!");
-
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
         displayQuestion();
@@ -110,15 +99,6 @@ function nextQuestion() {
 }
 
 function submitTest() {
-    let totalTime = Math.floor((new Date() - startTime) / 1000);
-    let minutes = Math.floor(totalTime / 60);
-    let seconds = totalTime % 60;
-
     document.getElementById("test-screen").style.display = "none";
     document.getElementById("result-screen").style.display = "block";
-
-    document.getElementById("correctCount").innerText = correctCount;
-    document.getElementById("wrongCount").innerText = wrongCount;
-    document.getElementById("unattemptedCount").innerText = questions.length - (correctCount + wrongCount);
-    document.getElementById("timeTaken").innerText = `${minutes} min ${seconds} sec`;
 }
